@@ -9,27 +9,27 @@ import { MusicStyleSummary } from '../shared/models/music-style-summary';
   providedIn: 'root',
 })
 export class MusicService {
-  private apiUrl = 'https://api.example.com'; // Cambia esto a la URL de tu API
+  private apiUrl = 'http://localhost:8085/musical-styles-survey/api/v1'; // Cambia esto a la URL de tu API
 
   constructor(private http: HttpClient) {}
 
-  /*
+
   getMusicStyles(): Observable<MusicStyle[]> {
-    return this.http.get<MusicStyle[]>(`${this.apiUrl}/music-styles`);
+    return this.http.get<MusicStyle[]>(`${this.apiUrl}/allMusicStyles`);
   }
 
   submitMusicChoice(styleId: number, email: string): Observable<PostResponse> {
-    return this.http.post<PostResponse>(`${this.apiUrl}/submit-vote`, {
+    return this.http.post<PostResponse>(`${this.apiUrl}/addUserPreference`, {
       styleId,
       email,
     });
   }
 
   getVoteResults(): Observable<any> {
-    return this.http.get<any>(`${this.apiUrl}/vote-results`);
+    return this.http.get<any>(`${this.apiUrl}/voteResults`);
   }
-  */
 
+/*
   // Método dummy que devuelve datos simulados
   getMusicStylesDummy(): Observable<MusicStyle[]> {
     const dummyData: MusicStyle[] = [
@@ -61,4 +61,5 @@ export class MusicService {
     ];
     return of(dummyData); // Retorna un observable con los datos simulados
   }
+    */
 }
