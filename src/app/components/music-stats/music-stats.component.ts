@@ -25,7 +25,7 @@ export class MusicStatsComponent implements OnInit {
   constructor(private musicService: MusicService) {}
 
   ngOnInit(): void {
-    this.musicService.getVoteResultsDummy().subscribe((results) => {
+    this.musicService.getVoteResults().subscribe((results) => {
       this.voteResults = results;
       this.chartLabels = results.map((res: any) => res.musicStyleName);
       this.chartData =

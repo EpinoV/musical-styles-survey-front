@@ -48,7 +48,7 @@ export class MusicFormComponent implements OnInit {
       email: ['', [Validators.required, Validators.email]],
     });
 
-    this.musicService.getMusicStylesDummy().subscribe((styles) => {
+    this.musicService.getMusicStyles().subscribe((styles) => {
       this.musicStyles = styles;
     });
   }
@@ -60,7 +60,7 @@ export class MusicFormComponent implements OnInit {
     }
 
     const { style, email } = this.musicForm.value;
-    this.musicService.submitMusicChoiceDummy(style, email).subscribe(
+    this.musicService.submitMusicChoice(style, email).subscribe(
       (response) => {
         if (response.statusCode === 0) {
           this.snackBar.open('Ingreso exitoso!', 'Cerrar', { duration: 3000 });
