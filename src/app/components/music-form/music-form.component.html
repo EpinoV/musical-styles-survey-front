@@ -1,0 +1,22 @@
+<mat-card>
+  <form [formGroup]="musicForm" (ngSubmit)="onSubmit()">
+    <mat-form-field>
+      <mat-label>Estilo Musical</mat-label>
+      <mat-select formControlName="style" required>
+        <mat-option *ngFor="let style of musicStyles" [value]="style.id">
+          {{ style.name }}
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="musicForm.get('style')?.hasError('required')">Selecciona un estilo</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Correo Electrónico</mat-label>
+      <input matInput formControlName="email" type="email" required>
+      <mat-error *ngIf="musicForm.get('email')?.hasError('email')">Ingresa un correo válido</mat-error>
+      <mat-error *ngIf="musicForm.get('email')?.hasError('required')">El correo es obligatorio</mat-error>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit">Guardar</button>
+  </form>
+</mat-card>
