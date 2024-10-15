@@ -13,5 +13,5 @@ import { NavbarComponent } from './core/navbar/navbar.component';
   imports: [NavbarComponent, RouterModule]
 })
 export class AppComponent {
-//  title = 'musical-styles-survey-front';
+  title = 'musical-styles-survey-front';
 }

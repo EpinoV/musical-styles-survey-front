@@ -1,10 +1,18 @@
 import { TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import { RouterModule, ActivatedRoute } from '@angular/router';
+import { of } from 'rxjs';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AppComponent],
+      imports: [RouterModule.forRoot([])],
+      providers: [
+        {
+          provide: ActivatedRoute,
+          useValue: { params: of({ id: '1' }) },
+        },
+      ],
     }).compileComponents();
   });
 
@@ -20,10 +28,11 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('musical-styles-survey-front');
   });
 
+  /* TODO ESTE TEST NNO APLICA YA QUE SE MODIFICÓ EL HTML
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
     expect(compiled.querySelector('h1')?.textContent).toContain('Hello, musical-styles-survey-front');
-  });
+  });*/
 });
